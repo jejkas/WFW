@@ -6,10 +6,10 @@ WFW.LastWeaponSwitch = 0;
 WFW.merchantstatus = false
 WFW.isActive = false;
 
-SLASH_MeleeStats1 = "/wfw";
+SLASH_Wfw1 = "/wfw";
 
 
-SlashCmdList["wfw"] = function(args)
+SlashCmdList["Wfw"] = function(args)
 	if (WFW.isActive)
 	then
 		ChatFrame1:AddMessage('WFW: Off');
