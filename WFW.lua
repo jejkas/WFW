@@ -23,7 +23,7 @@ end;
 
 
 function WFW.OnUpdateEvent()
-	if (WFW.LastOnUpdateEvent + WFW.TimeBetweenLastOnUpdateEvent) <= GetTime()
+	if (WFW.LastOnUpdateEvent + WFW.TimeBetweenLastOnUpdateEvent) <= GetTime() and WFW.isActive == true
 	then
 		-- We don't want to do this when the merch is open because that will sell the weapons.
 		if WFW.merchantstatus then WFW.printDebug("WFW.merchantstatus true"); return end;
