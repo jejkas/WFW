@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: WFW
+## Author: rexas (rexas@g33k.se)
+## Notes: WFW
+## SavedVariablesPerCharacter: WFW_Save
+WFW.lua
