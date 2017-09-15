@@ -46,7 +46,9 @@ function WFW.OnUpdateEvent()
 			then
 				-- Only want to do this in combat.
 				-- (Might change this, so that we can pre-buff WF on both weapons, but then we need to have a out of combat weapon switch senario that doesn't check attacks etc.)
-				if not UnitAffectingCombat("player") or not offSpeed -- No offhand equiped.
+				if not UnitAffectingCombat("player")
+				or not offSpeed -- No offhand equiped.
+				or CursorHasItem()
 				then
 					return;
 				end
@@ -162,7 +164,7 @@ end;
 
 -- Event stuff
 
-WFW.MainFrame = CreateFrame("FRAME", "TTMainFrame");
+WFW.MainFrame = CreateFrame("FRAME", "WFWMainFrame");
 WFW.MainFrame:SetScript("OnUpdate", WFW.OnUpdateEvent);
 WFW.MainFrame:SetScript("OnEvent", WFW.eventHandler);
 WFW.MainFrame:RegisterEvent("ADDON_LOADED");
@@ -271,3 +273,16 @@ function WFW.round(val, decimal)
 		return math.floor(val+0.5);
 	end;
 end;
+
+
+
+
+
+
+
+
+
+
+
+
+
