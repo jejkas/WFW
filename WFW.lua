@@ -33,10 +33,20 @@ function WFW.OnUpdateEvent()
 		if not offHandExpiration then offHandExpiration = 0; end
 		
 		local mainSpeed, offSpeed = UnitAttackSpeed("Player");
+		local gcd = 1.5;
+		if SM_FindSpell
+		then
+			local s,r = SM_FindSpell("Hamstring");
+			if(s)
+			then
+				gcd=1.5 - (GetTime() - GetSpellCooldown(s,r))
+			end
+		end
 		--WFW.printDebug("++++++++++++++++++++++++++");
 		--WFW.printDebug(GetTime() - WFW.LastMainHandAttack);
 		--WFW.printDebug(GetTime() - WFW.LastWeaponSwitch);
-		if ((GetTime() - WFW.LastMainHandAttack < 1 or (GetTime() - WFW.LastMainHandAttack) > 5) and WFW.LastWeaponSwitch + 5 <= GetTime())
+		--WFW.printDebug(gcd);
+		if ((GetTime() - WFW.LastMainHandAttack < 0.2 or (GetTime() - WFW.LastMainHandAttack) > 5) and WFW.LastWeaponSwitch + 5 <= GetTime() and gcd > 0.2)
 		then
 			--WFW.printDebug("-----------------------");
 			--WFW.printDebug(hasMainHandEnchant);
